@@ -11,7 +11,9 @@ export default function Catalog () {
     useEffect(() => {
         fetch('/api/products')
         .then(r => r.json())
-        .then(setProducts)
+        .then(data => {
+            setProducts(data)
+            setStatus('success')})
         .catch(err => {
             console.error(err);
             setStatus('error')});
