@@ -1,13 +1,15 @@
 'use client';
 
-export default function ProductList() {
+import ProductCard from "./ProductCard";
+
+export default function ProductList({products, addCart}) {
     return (
-        <div>
+        <div className="product-list">
             <h2>Product List</h2>
             <ul>
                 {products.map((p) => (
-                    <li key={p.id}>{p.name} - ${p.price}</li>
-                ))}
+                    <ProductCard key={p.id} product={p} addCart={addCart}/>
+                ))};
             </ul>
         </div>
     );
